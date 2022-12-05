@@ -3,19 +3,20 @@
 import { ChakraProvider } from '@chakra-ui/react'
 import Head from 'next/head'
 import Router from 'next/router'
-import NProgress from 'NProgress'
+// import NProgress from 'nProgress'
+import nProgress from  'nprogress'
 import Layout from '../components/Layout'
 import Link from 'next/link'
 
 export default function App({ Component, pageProps }) {
 
-NProgress.configure({ showSpinner: false})
+nProgress.configure({ showSpinner: false})
 Router.events.on('routeChangeStart', () => {
-  NProgress.start();
+  nProgress.start();
 });
-NProgress.configure({ showSpinner: false})
+nProgress.configure({ showSpinner: false})
 Router.events.on('routeChangeComplete', () => {
-  NProgress.done();
+  nProgress.done();
 });
 
   return (
